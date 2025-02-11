@@ -1,0 +1,76 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-medium);
+    padding: var(--padding-medium);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .btn-success {
+    background-color: var(--success-color);
+    color: white;
+  }
+  
+  .btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+  }
+  
+  .btn-warning {
+    background-color: var(--warning-color);
+    color: black;
+  }
+  
+  .btn-info {
+    background-color: var(--info-color);
+    color: white;
+  }
+  
+  .btn-small {
+    font-size: var(--font-size-small);
+    padding: var(--padding-small);
+  }
+  
+  .btn-medium {
+    font-size: var(--font-size-medium);
+    padding: var(--padding-medium);
+  }
+  
+  .btn-large {
+    font-size: var(--font-size-large);
+    padding: var(--padding-large);
+  }
+  
+  .btn-rounded-none {
+    border-radius: 0;
+  }
+  
+  .btn-rounded-small {
+    border-radius: var(--border-radius-small);
+  }
+  
+  .btn-rounded-medium {
+    border-radius: var(--border-radius-medium);
+  }
+  
+  .btn-rounded-large {
+    border-radius: var(--border-radius-large);
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
