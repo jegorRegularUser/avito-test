@@ -1,5 +1,5 @@
-import { useState } from "react";
-import  "./SearchBar.css";
+import { useState, ChangeEvent } from "react";
+import  "./Search.css";
 import Button from "../Button/Button";
 
 interface SearchBarProps {
@@ -25,7 +25,7 @@ const Search = ({
         type="text"
         placeholder={placeholder}
         value={query}
-        onChange={(value) => setQuery(value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
       />
       {showSearchButton && (
         <Button onClick={() => onSearch(query)}>{searchButtonText}</Button>
