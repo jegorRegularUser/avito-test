@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import "./Dropdown.css";
+import "./DropDown.css";
 
 interface DropdownProps {
   options: { value: string; label: string }[];
   onSelect: (value: string) => void;
   placeholder?: string;
 }
- const Dropdown: React.FC<DropdownProps> = ({
+ const Dropdown  = ({
   options,
   onSelect,
   placeholder = "Выберите...",
-}) => {
+}: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
 

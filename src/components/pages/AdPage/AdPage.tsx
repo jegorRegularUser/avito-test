@@ -6,14 +6,9 @@ import AdCard from "./components/AdCard/AdCard";
 import Pagination from "../../common/Pagination/Pagination";
 import Loader from "../../common/Loader/Loader";
 import Button from "../../common/Button/Button"; 
+import {getAds} from "../../../services/api";
+import {Ad} from "../../../services/types";
 
-interface Ad {
-  id: string;
-  name: string;
-  location: string;
-  type: "Недвижимость" | "Авто" | "Услуги";
-  price?: number;
-}
 
 const AdListPage = () => {
   const [ads, setAds] = useState<Ad[]>([]);
@@ -29,9 +24,12 @@ const AdListPage = () => {
     const fetchAds = async () => {
       setIsLoading(true);
       try {
-        // Заглушка
-        const response = await fetch("/api/items");
+        const response = await fetch("http://localhost:3000/items");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
+        console.log(data); 
         setAds(data);
         setFilteredAds(data);
       } catch (error) {
@@ -44,7 +42,6 @@ const AdListPage = () => {
     fetchAds();
   }, []);
 
-  // Фильтрация и поиск
   useEffect(() => {
     let updatedAds = [...ads];
 
@@ -55,6 +52,7 @@ const AdListPage = () => {
     }
 
     if (filters.type) {
+      console.log(filters)
       updatedAds = updatedAds.filter((ad) => ad.type === filters.type);
     }
 
@@ -62,7 +60,6 @@ const AdListPage = () => {
     setCurrentPage(1);
   }, [searchQuery, filters, ads]);
 
-  // Логика пагинации
   const indexOfLastAd = currentPage * adsPerPage;
   const indexOfFirstAd = indexOfLastAd - adsPerPage;
   const currentAds = filteredAds.slice(indexOfFirstAd, indexOfLastAd);

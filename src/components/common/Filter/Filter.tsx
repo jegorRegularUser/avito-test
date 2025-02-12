@@ -28,6 +28,7 @@ const Filter = ({
   const handleFilterChange = (key: string, value: any) => {
     const newFilters = { ...filters, [key]: value };
     setFilters(newFilters);
+    console.log(filters)
     onFilterChange(newFilters);
   };
 

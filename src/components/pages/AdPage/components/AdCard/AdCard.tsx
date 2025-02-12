@@ -1,13 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "./AdCard.css";
 import Button from "../../../../common/Button/Button";
-
-interface AdCardProps {
-  id: string;
-  name: string;
-  location: string;
-  type: "Недвижимость" | "Авто" | "Услуги";
-  price?: number;
+import { AdBase} from "../../../../../services/types";
+interface AdCardProps extends AdBase {
   className?: string;
 }
 
