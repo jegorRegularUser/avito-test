@@ -79,8 +79,6 @@ app.post('/items', (req, res) => {
 
 // Получение всех объявлений
 app.get('/items', (req, res) => {
-  console.log('GET /items');
-  console.log(items)
   res.json(items);
 });
 

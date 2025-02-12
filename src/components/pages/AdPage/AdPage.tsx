@@ -5,10 +5,10 @@ import Filter from "../../common/Filter/Filter";
 import AdCard from "./components/AdCard/AdCard";
 import Pagination from "../../common/Pagination/Pagination";
 import Loader from "../../common/Loader/Loader";
-import Button from "../../common/Button/Button"; 
-import {getAds} from "../../../services/api";
-import {Ad} from "../../../services/types";
-
+import Button from "../../common/Button/Button";
+import { getAds } from "../../../services/api";
+import { Ad } from "../../../services/types";
+import { useNavigate } from "react-router-dom";
 
 const AdListPage = () => {
   const [ads, setAds] = useState<Ad[]>([]);
@@ -19,24 +19,22 @@ const AdListPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const adsPerPage = 5;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAds = async () => {
       setIsLoading(true);
-      try {
-        const response = await fetch("http://localhost:3000/items");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log(data); 
-        setAds(data);
-        setFilteredAds(data);
-      } catch (error) {
-        console.error("Ошибка загрузки объявлений:", error);
-      } finally {
-        setIsLoading(false);
-      }
+      getAds()
+        .then((data) => {
+          setAds(data);
+          setFilteredAds(data);
+        })
+        .catch((e) => {
+          console.error("Ошибка загрузки объявлений:", e);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     };
 
     fetchAds();
@@ -52,7 +50,7 @@ const AdListPage = () => {
     }
 
     if (filters.type) {
-      console.log(filters)
+      console.log(filters);
       updatedAds = updatedAds.filter((ad) => ad.type === filters.type);
     }
 
@@ -71,7 +69,14 @@ const AdListPage = () => {
       <div className="topControls">
         <SearchBar onSearch={setSearchQuery} />
         <Filter onFilterChange={setFilters} />
-        <Button variant="primary" size="medium" rounded="medium">Разместить объявление</Button>
+        <Button
+          variant="primary"
+          size="medium"
+          rounded="medium"
+          onClick={() => navigate("/form")}
+        >
+          Разместить объявление
+        </Button>
       </div>
 
       {isLoading ? (

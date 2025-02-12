@@ -1,0 +1,16 @@
+.ad-form {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .ad-form-step {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
