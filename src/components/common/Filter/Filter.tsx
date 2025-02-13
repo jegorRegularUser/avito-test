@@ -13,7 +13,7 @@ interface FilterProps {
 const Filter = ({
   onFilterChange,
   showSearchButton = true,
-  searchButtonText = "Найти",
+  searchButtonText = "Фильтровать",
   className = "",
 }: FilterProps) => {
   const [category, setCategory] = useState<string | null>(null);
@@ -30,6 +30,10 @@ const Filter = ({
     setFilters(newFilters);
     console.log(filters)
     onFilterChange(newFilters);
+  };
+
+  const handleFilterButtonClick = () => {
+    onFilterChange(filters);
   };
 
   return (
@@ -112,7 +116,7 @@ const Filter = ({
       )}
 
       {showSearchButton && (
-        <Button onClick={() => onFilterChange(filters)}>
+        <Button onClick={handleFilterButtonClick}>
           {searchButtonText}
         </Button>
       )}
