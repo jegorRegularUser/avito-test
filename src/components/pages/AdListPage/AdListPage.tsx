@@ -58,6 +58,7 @@ const AdListPage = () => {
     setCurrentPage(1);
   }, [searchQuery, filters, ads]);
 
+
   const indexOfLastAd = currentPage * adsPerPage;
   const indexOfFirstAd = indexOfLastAd - adsPerPage;
   const currentAds = filteredAds.slice(indexOfFirstAd, indexOfLastAd);

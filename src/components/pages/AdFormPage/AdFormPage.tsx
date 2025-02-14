@@ -9,12 +9,14 @@ import { AdType, Ad } from "../../../services/types";
 import Loader from "../../common/Loader/Loader";
 import "./AdFormPage.css";
 import { useNavigate } from "react-router-dom";
+import Alert from "../../common/Alert/Alert";
 
 const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
   const { id: adId } = useParams<{ id: string }>();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<Partial<Ad>>();
   const [loading, setLoading] = useState(true);
+  const [alert, setAlert] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
   const navigate = useNavigate();
 
@@ -42,25 +44,25 @@ const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
         updateAd(adId, formData)
           .then((res) => {
             console.log(res);
-            alert("Объявление успешно обновлено!");
+            setAlert({ message: "Объявление успешно обновлено!", type: "success" });
             navigate("/list");
           })
           .catch(() => {
-            alert("Ошибка при обновлении объявления!");
+            setAlert({ message: "Ошибка при обновлении объявления!", type: "error" });
           });
       } else {
         createAd(formData)
           .then((res) => {
             console.log(res);
-            alert("Объявление успешно создано!");
+            setAlert({ message: "Объявление успешно создано!", type: "success" });
             navigate("/list");
           })
           .catch(() => {
-            alert("Ошибка при создании объявления!");
+            setAlert({ message: "Ошибка при создании объявления!", type: "error" });
           });
       }
     } else {
-      alert("Форма не заполнена!");
+      setAlert({ message: "Форма не заполнена!", type: "error" });
     }
   };
 
@@ -68,6 +70,7 @@ const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
 
   return (
     <div className="ad-form">
+      {alert && <Alert message={alert.message} type={alert.type} onClose={() => setAlert(null)} />}
       {step === 1 && <AdFormStepGeneral data={formData} onNext={handleNext} />}
       {step === 2 && formData && (
         <AdFormStepDetails
