@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./Filter.css";
 import { Dropdown, Button, RangeSelector } from "../../common";
-import React from "react";
+import React from 'react';
 interface FilterProps {
-  onFilterChange: (filters: Record<string, any>) => void;
+  onFilterChange: (filters: Record<string, unknown>) => void;
   showSearchButton?: boolean;
   searchButtonText?: string;
   className?: string;
@@ -16,8 +16,8 @@ const Filter = ({
   className = "",
 }: FilterProps) => {
   const [category, setCategory] = useState<string | null>(null);
-  const [filters, setFilters] = useState<Record<string, any>>({});
-  const [tempFilters, setTempFilters] = useState<Record<string, any>>({});
+  const [filters, setFilters] = useState<Record<string, unknown>>({});
+  const [tempFilters, setTempFilters] = useState<Record<string, unknown>>({});
 
   const handleCategoryChange = (value: string | null) => {
     setCategory(value);
@@ -27,7 +27,7 @@ const Filter = ({
     onFilterChange(newFilters);
   };
 
-  const handleFilterChange = (key: string, value: any) => {
+  const handleFilterChange = (key: string, value: unknown) => {
     const newFilters = { ...tempFilters, [key]: value };
     setTempFilters(newFilters);
   };
@@ -122,7 +122,7 @@ const Filter = ({
       )}
 
       {showSearchButton && (
-        <Button onClick={handleFilterButtonClick}>
+        <Button onClick={handleFilterButtonClick} className="filter__button">
           {searchButtonText}
         </Button>
       )}

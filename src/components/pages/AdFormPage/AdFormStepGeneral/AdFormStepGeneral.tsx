@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Dropdown, Button, ImageUpload } from "../../../common";
 import "./AdFormStepGeneral.css";
-
+import React from "react";
 const AdFormStepGeneral = ({ data, onNext }: { data: any; onNext: (data: any) => void }) => {
   const [formData, setFormData] = useState(data || {
     name: "",

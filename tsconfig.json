@@ -11,9 +11,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["jest"]
+    "types": ["node","jest"],
+    "lib": ["ES2024", "DOM"],
+    "jsx": "react-jsx"
   },
   "files": [],
+  "include": ["src/**/*", "tests/**/*"],
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

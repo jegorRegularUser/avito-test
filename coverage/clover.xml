@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1739652662796" clover="3.2.0">
+  <project timestamp="1739652662796" name="All files">
+    <metrics statements="245" coveredstatements="184" conditionals="113" coveredconditionals="64" methods="79" coveredmethods="38" elements="437" coveredelements="286" complexity="0" loc="245" ncloc="245" packages="14" files="14" classes="14"/>
+    <package name="jest">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="styleMock.js" path="E:\Sync\Random\avito-test\jest\styleMock.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="7"/>
+      <file name="index.ts" path="E:\Sync\Random\avito-test\src\components\common\index.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="7"/>
+        <line num="1" count="13" type="stmt"/>
+        <line num="2" count="9" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="4" count="13" type="stmt"/>
+        <line num="5" count="16" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="37" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.Alert">
+      <metrics statements="22" coveredstatements="4" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="Alert.tsx" path="E:\Sync\Random\avito-test\src\components\common\Alert\Alert.tsx">
+        <metrics statements="22" coveredstatements="4" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.Button">
+      <metrics statements="10" coveredstatements="10" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+      <file name="Button.tsx" path="E:\Sync\Random\avito-test\src\components\common\Button\Button.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="43" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="43" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="43" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="43" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="43" type="stmt"/>
+        <line num="16" count="43" type="stmt"/>
+        <line num="18" count="43" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.DropDown">
+      <metrics statements="25" coveredstatements="24" conditionals="22" coveredconditionals="17" methods="8" coveredmethods="7"/>
+      <file name="DropDown.tsx" path="E:\Sync\Random\avito-test\src\components\common\DropDown\DropDown.tsx">
+        <metrics statements="25" coveredstatements="24" conditionals="22" coveredconditionals="17" methods="8" coveredmethods="7"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="24" type="stmt"/>
+        <line num="16" count="24" type="stmt"/>
+        <line num="17" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="24" type="stmt"/>
+        <line num="19" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="24" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="24" type="stmt"/>
+        <line num="24" count="24" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="24" type="stmt"/>
+        <line num="27" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="24" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="36" count="24" type="stmt"/>
+        <line num="38" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="3" type="cond" truecount="5" falsecount="1"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="46" count="14" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.Filter">
+      <metrics statements="36" coveredstatements="22" conditionals="14" coveredconditionals="9" methods="13" coveredmethods="2"/>
+      <file name="Filter.tsx" path="E:\Sync\Random\avito-test\src\components\common\Filter\Filter.tsx">
+        <metrics statements="36" coveredstatements="22" conditionals="14" coveredconditionals="9" methods="13" coveredmethods="2"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="13" type="stmt"/>
+        <line num="14" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="13" type="stmt"/>
+        <line num="19" count="13" type="stmt"/>
+        <line num="20" count="13" type="stmt"/>
+        <line num="22" count="13" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="13" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="13" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="13" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="45" count="13" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="133" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.ImageUpload">
+      <metrics statements="23" coveredstatements="22" conditionals="12" coveredconditionals="10" methods="5" coveredmethods="5"/>
+      <file name="ImageUpload.tsx" path="E:\Sync\Random\avito-test\src\components\common\ImageUpload\ImageUpload.tsx">
+        <metrics statements="23" coveredstatements="22" conditionals="12" coveredconditionals="10" methods="5" coveredmethods="5"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="2" type="cond" truecount="1" falsecount="2"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="22" count="1" type="cond" truecount="3" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="30" count="6" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="6" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.Loader">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Loader.tsx" path="E:\Sync\Random\avito-test\src\components\common\Loader\Loader.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.Pagination">
+      <metrics statements="12" coveredstatements="9" conditionals="8" coveredconditionals="5" methods="5" coveredmethods="2"/>
+      <file name="Pagination.tsx" path="E:\Sync\Random\avito-test\src\components\common\Pagination\Pagination.tsx">
+        <metrics statements="12" coveredstatements="9" conditionals="8" coveredconditionals="5" methods="5" coveredmethods="2"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="14" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.RangeSelector">
+      <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="3"/>
+      <file name="RangeSelector.tsx" path="E:\Sync\Random\avito-test\src\components\common\RangeSelector\RangeSelector.tsx">
+        <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="10" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.common.Search">
+      <metrics statements="14" coveredstatements="12" conditionals="10" coveredconditionals="6" methods="3" coveredmethods="1"/>
+      <file name="Search.tsx" path="E:\Sync\Random\avito-test\src\components\common\Search\Search.tsx">
+        <metrics statements="14" coveredstatements="12" conditionals="10" coveredconditionals="6" methods="3" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="11" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="22" count="11" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.pages.AdListPage">
+      <metrics statements="48" coveredstatements="36" conditionals="14" coveredconditionals="2" methods="12" coveredmethods="8"/>
+      <file name="AdListPage.tsx" path="E:\Sync\Random\avito-test\src\components\pages\AdListPage\AdListPage.tsx">
+        <metrics statements="48" coveredstatements="36" conditionals="14" coveredconditionals="2" methods="12" coveredmethods="8"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="35" count="11" type="stmt"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="38" count="6" type="stmt"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="52" count="7" type="stmt"/>
+        <line num="54" count="7" type="cond" truecount="0" falsecount="1"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="7" type="stmt"/>
+        <line num="62" count="7" type="stmt"/>
+        <line num="63" count="7" type="stmt"/>
+        <line num="66" count="11" type="stmt"/>
+        <line num="67" count="11" type="stmt"/>
+        <line num="68" count="11" type="stmt"/>
+        <line num="70" count="11" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="93" count="6" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.pages.AdListPage.components.AdCard">
+      <metrics statements="9" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="1"/>
+      <file name="AdCard.tsx" path="E:\Sync\Random\avito-test\src\components\pages\AdListPage\components\AdCard\AdCard.tsx">
+        <metrics statements="9" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services">
+      <metrics statements="17" coveredstatements="8" conditionals="5" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <file name="api.ts" path="E:\Sync\Random\avito-test\src\services\api.ts">
+        <metrics statements="17" coveredstatements="8" conditionals="5" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="1"/>
+      </file>
+    </package>
+  </project>
+</coverage>

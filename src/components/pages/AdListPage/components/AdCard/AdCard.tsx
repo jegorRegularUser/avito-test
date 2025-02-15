@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./AdCard.css";
 import Button from "../../../../common/Button/Button";
 import { AdBase } from "../../../../../services/types";
-
+import React from 'react';
 interface AdCardProps extends AdBase {
   className?: string;
 }
@@ -11,7 +11,7 @@ const AdCard = ({ id, name, location, type, price, image, className = "" }: AdCa
   const navigate = useNavigate();
 console.log(image)
   return (
-    <div className={`adCard ${className}`}>
+    <div className={`adCard ${className}`} data-testid="ad-card">
       <div className="adCard__image-container">
         {image && image != "null" ? (
           <img src={image} alt={name} className="adCard__image" />

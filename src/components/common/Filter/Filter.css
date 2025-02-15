@@ -5,4 +5,7 @@
     background: var(--bg-secondary);
     border-radius: var(--border-radius);
   }
-  
+.filter__button{
+  width: 200px;
+  height: 42px;
+}

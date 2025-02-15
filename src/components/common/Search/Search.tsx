@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import  "./Search.css";
 import { Button } from "../../common";
 

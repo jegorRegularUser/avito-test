@@ -3,11 +3,26 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
-/** @type {import('eslint').Linter.Config[]} */
+/** @type {import('eslint').Linter.Config} */
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   {
-    languageOptions: { globals: globals.browser, parser: tseslint.parser },
+    files: ["**/*.{ts,tsx,js,jsx,cjs,mjs}"],
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.jest, ...globals.node },
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+        ecmaVersion: "latest",
+        sourceType: "module",
+        project: [
+          "./tsconfig.app.json",
+          "./tsconfig.json",
+          "./tsconfig.node.json",
+        ],
+      },
+    },
     plugins: {
       "@typescript-eslint": tseslint.plugin,
       react: pluginReact,
@@ -15,13 +30,25 @@ export default [
     rules: {
       ...pluginJs.configs.recommended.rules,
       ...tseslint.configs.recommended.rules,
-      ...pluginReact.configs.flat.recommended.rules,
+      ...pluginReact.configs.recommended.rules,
       "react/react-in-jsx-scope": "off",
-      "no-unused-vars": "warn",
-    }
+      "react/jsx-uses-react": "off",
+      "no-unused-vars": "off",
+    },
+    ignores: [
+      "node_modules",
+      "dist",
+      "build",
+      "out",
+      "coverage",
+      "public",
+      "static",
+      "assets",
+      "babel.config.mjs",
+      "eslint.config.js",
+      "jest.config.mjs",
+      "jest/styleMock.js",
+      "server/app.js",
+    ],
   },
-
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
 ];

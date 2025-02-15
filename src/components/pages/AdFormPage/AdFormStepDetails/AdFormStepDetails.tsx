@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button, Dropdown } from "../../../common";
 import "./AdFormStepDetails.css";
-
+import React from "react";
 const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data: any) => void; onBack: (data: any) => void }) => {
   const [formData, setFormData] = useState(data);
   const [errors, setErrors] = useState({
