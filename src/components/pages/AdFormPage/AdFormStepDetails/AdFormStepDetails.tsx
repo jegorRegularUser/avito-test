@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Button from "../../../common/Button/Button";
+import { Button } from "../../../common";
 import "./AdFormStepDetails.css";
 
 const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data: any) => void; onBack: () => void }) => {

@@ -4,12 +4,12 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--light-color);
+  background-color: var(--dark-bg);
 
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--padding-large);
   text-align: center;
 
   font-synthesis: none;
@@ -23,14 +23,15 @@
 }
 
 input {
-  font-size: var(--font-size-medium);
+  font-size: var(--font-16);
   padding: var(--padding-medium);
   border: 1px solid var(--secondary-color);
   border-radius: var(--border-radius-medium);
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus {
   border-color: var(--primary-color);
+  box-shadow: 0 0 4px var(--primary-color);
 }

@@ -3,9 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getAdById, deleteAd } from "../../../services/api";
 import { Ad } from "../../../services/types";
 import AdInfo from "./components/AdInfo/AdInfo";
-import Button from "../../common/Button/Button";
-import Loader from "../../common/Loader/Loader";
-import Alert from "../../common/Alert/Alert";
+import { Button, Loader, Alert } from "../../common";
 import "./AdPage.css";
 
 const AdPage = () => {
@@ -16,27 +14,27 @@ const AdPage = () => {
   const [alert, setAlert] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
   useEffect(() => {
-    const fetchAd = async () => {
-      try {
-        const data = await getAdById(id!);
+    getAdById(id!)
+      .then((data) => {
         setAd(data);
-      } catch (error) {
+      })
+      .catch(() => {
         setAlert({ message: "Ошибка загрузки объявления", type: "error" });
-      } finally {
+      })
+      .finally(() => {
         setLoading(false);
-      }
-    };
-    fetchAd();
+      });
   }, [id]);
 
-  const handleDelete = async () => {
-    try {
-      await deleteAd(id!);
-      setAlert({ message: "Объявление успешно удалено", type: "success" });
-      setTimeout(() => navigate("/"), 3000);
-    } catch (error) {
-      setAlert({ message: "Ошибка удаления объявления", type: "error" });
-    }
+  const handleDelete = () => {
+    deleteAd(id!)
+      .then(() => {
+        setAlert({ message: "Объявление успешно удалено", type: "success" });
+        setTimeout(() => navigate("/"), 3000);
+      })
+      .catch(() => {
+        setAlert({ message: "Ошибка удаления объявления", type: "error" });
+      });
   };
 
   if (loading) return <div className="ad"><Loader/></div>;

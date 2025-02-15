@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./AdListPage.css";
-import SearchBar from "../../common/Search/Search";
-import Filter from "../../common/Filter/Filter";
+import { Search, Filter, Pagination, Loader, Button } from "../../common";
 import AdCard from "./components/AdCard/AdCard";
-import Pagination from "../../common/Pagination/Pagination";
-import Loader from "../../common/Loader/Loader";
-import Button from "../../common/Button/Button";
 import { getAds } from "../../../services/api";
 import { Ad } from "../../../services/types";
 import { useNavigate } from "react-router-dom";
@@ -22,22 +18,18 @@ const AdListPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchAds = async () => {
-      setIsLoading(true);
-      getAds()
-        .then((data) => {
-          setAds(data);
-          setFilteredAds(data);
-        })
-        .catch((e) => {
-          console.error("Ошибка загрузки объявлений:", e);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    };
-
-    fetchAds();
+    setIsLoading(true);
+    getAds()
+      .then((data) => {
+        setAds(data);
+        setFilteredAds(data);
+      })
+      .catch((e) => {
+        console.error("Ошибка загрузки объявлений:", e);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   useEffect(() => {
@@ -58,7 +50,6 @@ const AdListPage = () => {
     setCurrentPage(1);
   }, [searchQuery, filters, ads]);
 
-
   const indexOfLastAd = currentPage * adsPerPage;
   const indexOfFirstAd = indexOfLastAd - adsPerPage;
   const currentAds = filteredAds.slice(indexOfFirstAd, indexOfLastAd);
@@ -68,13 +59,14 @@ const AdListPage = () => {
       <h1>Список объявлений</h1>
 
       <div className="topControls">
-        <SearchBar onSearch={setSearchQuery} />
+       <Search onSearch={setSearchQuery} />
         <Filter onFilterChange={setFilters} />
         <Button
           variant="primary"
           size="medium"
           rounded="medium"
           onClick={() => navigate("/form")}
+          className="addAdBtn"
         >
           Разместить объявление
         </Button>
@@ -93,6 +85,7 @@ const AdListPage = () => {
             currentPage={currentPage}
             totalPages={Math.ceil(filteredAds.length / adsPerPage)}
             onPageChange={setCurrentPage}
+            disabled={filteredAds.length === 0}
           />
         </>
       )}

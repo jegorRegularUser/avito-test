@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import Dropdown from "../../../common/DropDown/DropDown";
-import Button from "../../../common/Button/Button";
+import { Dropdown, Button } from "../../../common";
 import "./AdFormStepGeneral.css";
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +22,7 @@ const AdFormStepGeneral = ({ data, onNext }: { data: any; onNext: (data: any) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleTypeChange = (value: string) => {
+  const handleTypeChange = (value: string  | null) => {
     setFormData({ ...formData, type: value, propertyType: "", area: "", rooms: "", price: "", brand: "", model: "", year: "", mileage: "", serviceType: "", experience: "", cost: "", workSchedule: "" });
   };
 

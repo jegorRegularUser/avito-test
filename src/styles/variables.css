@@ -5,8 +5,15 @@
     --danger-color: #dc3545;
     --warning-color: #ffc107;
     --info-color: #17a2b8;
+
     --light-color: #f8f9fa;
+    --light-bg: #ffffff;
     --dark-color: #343a40;
+    --dark-bg: #242424;
+    --dark-muted: #3d4146; 
+  
+    --text-color-light: var(--light-color);
+    --text-color-dark: var(--dark-color);
   
     --font-12: 12px;
     --font-16: 16px;
@@ -20,4 +27,3 @@
     --padding-medium: 8px 16px;
     --padding-large: 12px 24px;
   }
-  

@@ -6,10 +6,9 @@ import AdFormStepReview from "./AdFormStepReview/AdFormStepReview";
 import AdFormNavigation from "./AdFormNavigation/AdFormNavigation";
 import { createAd, getAdById, updateAd } from "../../../services/api";
 import { AdType, Ad } from "../../../services/types";
-import Loader from "../../common/Loader/Loader";
+import { Loader, Alert } from "../../common";
 import "./AdFormPage.css";
 import { useNavigate } from "react-router-dom";
-import Alert from "../../common/Alert/Alert";
 
 const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
   const { id: adId } = useParams<{ id: string }>();

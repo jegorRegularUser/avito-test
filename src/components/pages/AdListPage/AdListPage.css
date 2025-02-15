@@ -2,6 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
   }
   
   .topControls {
@@ -9,28 +10,26 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
+    position: relative;
   }
   
   .adList {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 10px;
   }
   
-  .addAdButton {
-    background: var(--color-primary);
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: var(--border-radius);
-    border: none;
-    cursor: pointer;
+  .addAdBtn{
+    position: absolute;
+    top: 0;
+    right: 5%;
   }
   
-  .addAdButton:hover {
-    background: var(--color-primary-dark);
-  }
+
+
   
-  /* Адаптивность */
   @media (max-width: 768px) {
     .topControls {
       flex-direction: column;

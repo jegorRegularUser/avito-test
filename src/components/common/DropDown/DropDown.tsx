@@ -3,9 +3,9 @@ import "./DropDown.css";
 
 interface DropdownProps {
   options: { value: string; label: string }[];
-  onSelect: (value: string) => void;
+  onSelect: (value: string | null) => void;
   placeholder?: string;
-  selected?: string;
+  selected?: string | null;
 }
 
 const Dropdown = ({
@@ -21,7 +21,7 @@ const Dropdown = ({
     setSelected(initialSelected || null);
   }, [initialSelected]);
 
-  const handleSelect = (value: string) => {
+  const handleSelect = (value: string | null) => {
     setSelected(value);
     onSelect(value);
     setIsOpen(false);
@@ -34,6 +34,9 @@ const Dropdown = ({
       </div>
       {isOpen && (
         <div className="dropdown-menu">
+          <div className="dropdown-item clear-option" onClick={() => handleSelect(null)}>
+            Очистить выбор
+          </div>
           {options.map((option) => (
             <div
               key={option.value}

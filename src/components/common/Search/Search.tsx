@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from "react";
 import  "./Search.css";
-import Button from "../Button/Button";
+import { Button } from "../../common";
 
 interface SearchBarProps {
   placeholder?: string;

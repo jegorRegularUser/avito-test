@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Filter.css";
-import Dropdown from "../DropDown/DropDown";
-import Button from "../Button/Button";
+import { Dropdown, Button } from "../../common";
 
 interface FilterProps {
   onFilterChange: (filters: Record<string, any>) => void;
@@ -19,7 +18,7 @@ const Filter = ({
   const [category, setCategory] = useState<string | null>(null);
   const [filters, setFilters] = useState<Record<string, any>>({});
 
-  const handleCategoryChange = (value: string) => {
+  const handleCategoryChange = (value: string | null) => {
     setCategory(value);
     setFilters({});
     onFilterChange({});
