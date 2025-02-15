@@ -17,7 +17,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    gap: 12px;
+    gap: 18px;
     margin-bottom: 10px;
   }
   
@@ -25,14 +25,32 @@
     position: absolute;
     top: 0;
     right: 5%;
+    height: 40px;
   }
   
 
 
   
   @media (max-width: 768px) {
+    .container {
+      padding: 0;
+      position: relative;
+
+    }
     .topControls {
       flex-direction: column;
+      margin: 70px 0 20px;
+    }
+    .addAdBtn{
+      top: -60px;
+      right: auto;
+      height: 40px;
+      width: 100%;
+    }
+
+    .container .adList {
+
+      gap: 10px;
     }
   }
   

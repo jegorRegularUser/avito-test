@@ -1,43 +1,73 @@
 .adCard {
-    display: flex;
-    width: calc(50% - 24px);
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    border-radius: 8px;
-    background: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-  }
+  display: flex;
+  width: calc(50% - 9px);
+  min-width: 370px;
+  padding: 12px;
+  border-radius: 8px;
+
+
+  align-items: center;
+  gap: 16px;
+}
+.adCard:hover {
+  background: var(--dark-light-bg);
+  transition: background 0.3s ease;
+}
+
+.adCard__image-container {
+  flex-shrink: 0;
+  width: 50%;
+  height: 320px;
+}
+
+.adCard__image,
+.adCard__image-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.adCard__image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ccc;
+}
+
+.adCard__details {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start;
+ 
+  gap: 16px;
+}
+.adCard__details p{
+  margin: 0;
+}
+
+.adCard__name {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.adCard__location {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.adCard__type {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
   
-  .details {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+@media (max-width: 768px) {
+  .container .adCard__image-container {
+    width: 40%;
+    height: 240px;
   }
-  
-  .adCard__image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .adCard__image-placeholder {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ccc;
-    border-radius: 8px;
-  }
-  
-  .name {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .location, .type, .price {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-  }
+}

@@ -1,0 +1,15 @@
+.ad-form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.btn-back {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+}

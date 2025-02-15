@@ -22,16 +22,25 @@
   box-sizing: border-box;
 }
 
-input {
+input, textarea {
   font-size: var(--font-16);
-  padding: var(--padding-medium);
-  border: 1px solid var(--secondary-color);
-  border-radius: var(--border-radius-medium);
+  padding: var(--input-padding);
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 4px var(--primary-color);
+input:focus, textarea:focus {
+  border-color: var(--input-focus-border-color);
+  box-shadow: var(--input-focus-box-shadow);
 }
+
+input.error, textarea.error {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 4px var(--danger-color);
+}
+
+

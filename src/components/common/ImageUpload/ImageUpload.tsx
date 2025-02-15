@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./ImageUpload.css";
 
-const ImageUpload = ({ onImageUpload, initialImage }: { onImageUpload: (file: File | null) => void, initialImage?: string }) => {
+const ImageUpload = ({ onImageUpload, initialImage, isImageLoaded }: { onImageUpload: (file: File | null) => void, initialImage?: string, isImageLoaded?: boolean }) => {
   const [image, setImage] = useState<string | null>(initialImage || null);
 
   useEffect(() => {
@@ -11,14 +11,18 @@ const ImageUpload = ({ onImageUpload, initialImage }: { onImageUpload: (file: Fi
       setImage(null);
     }
   }, [initialImage]);
-  
+
+  useEffect(() => {
+    if (isImageLoaded && initialImage) {
+      setImage(initialImage);
+    }
+  }, [isImageLoaded, initialImage]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
-      console.log(imageUrl);
       onImageUpload(file);
     }
   };
@@ -33,10 +37,13 @@ const ImageUpload = ({ onImageUpload, initialImage }: { onImageUpload: (file: Fi
       {image ? (
         <div className="image-preview">
           <img src={image} alt="Preview" />
-          <button onClick={handleRemoveImage}>Удалить</button>
+          <button className="btn-remove" onClick={handleRemoveImage}>Удалить</button>
         </div>
       ) : (
-        <input type="file" accept="image/*" onChange={handleImageChange} />
+        <label className="file-input-label">
+          <input type="file" accept="image/jpeg, image/png, image/jpg" onChange={handleImageChange} />
+          Выберите файл
+        </label>
       )}
     </div>
   );

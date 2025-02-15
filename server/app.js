@@ -56,8 +56,6 @@ app.post("/items", upload.single("image"), (req, res) => {
   const image = req.file
     ? `http://localhost:3000/uploads/${req.file.filename}`
     : null;
-  console.log(req.body);
-  console.log(req.file);
 
   // Validate common required fields
   if (!name || !description || !location || !type) {

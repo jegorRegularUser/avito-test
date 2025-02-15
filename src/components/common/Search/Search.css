@@ -1,6 +1,11 @@
 .search {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
+  width: 75%;
+}
+
+@media (max-width: 768px) {
+  .search {
     width: 100%;
   }
-  
+}

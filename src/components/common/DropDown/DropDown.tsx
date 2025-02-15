@@ -6,6 +6,9 @@ interface DropdownProps {
   onSelect: (value: string | null) => void;
   placeholder?: string;
   selected?: string | null;
+  customStyles?: React.CSSProperties;
+  className?: string;
+  error?: boolean;
 }
 
 const Dropdown = ({
@@ -13,6 +16,9 @@ const Dropdown = ({
   onSelect,
   placeholder = "Выберите...",
   selected: initialSelected,
+  customStyles = {},
+  className = "",
+  error = false,
 }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<string | null>(initialSelected || null);
@@ -28,8 +34,8 @@ const Dropdown = ({
   };
 
   return (
-    <div className="dropdown">
-      <div className="dropdown-toggle" onClick={() => setIsOpen(!isOpen)}>
+    <div className={`dropdown ${className}`} style={customStyles}>
+      <div className={`dropdown-toggle ${error ? "error" : ""}`} onClick={() => setIsOpen(!isOpen)}>
         {selected ? options.find((o) => o.value === selected)?.label : placeholder}
       </div>
       {isOpen && (

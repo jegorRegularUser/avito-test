@@ -6,3 +6,4 @@ export { default as Dropdown } from "./DropDown/DropDown";
 export { default as Alert } from "./Alert/Alert";
 export { default as Button } from "./Button/Button";
 export { default as RangeSelector } from "./RangeSelector/RangeSelector";
+export {default as ImageUpload} from "./ImageUpload/ImageUpload";

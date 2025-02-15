@@ -12,18 +12,19 @@ const AdCard = ({ id, name, location, type, price, image, className = "" }: AdCa
 
   return (
     <div className={`adCard ${className}`}>
-      <div className="details">
+      <div className="adCard__image-container">
         {image ? (
           <img src={image} alt={name} className="adCard__image" />
         ) : (
-          <div className="adCard__image-placeholder">No Image</div>
+          <div className="adCard__image-placeholder">Нет фотографии</div>
         )}
-        <h3 className="name">{name}</h3>
-        <p className="location">{location}</p>
-        <p className="type">{type}</p>
-        {price !== undefined && <p className="price">{price.toLocaleString()} ₽</p>}
       </div>
-      <Button onClick={() => navigate(`/item/${id}`)}>Открыть</Button>
+      <div className="adCard__details">
+        <h3 className="adCard__name">{name}</h3>
+        <p className="adCard__location">{location}</p>
+        <p className="adCard__type">{type}</p>
+        <Button onClick={() => navigate(`/item/${id}`)}>Открыть</Button>
+      </div>
     </div>
   );
 };

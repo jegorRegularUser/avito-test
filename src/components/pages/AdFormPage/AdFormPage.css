@@ -1,16 +1,20 @@
 .ad-form {
-    max-width: 500px;
-    margin: auto;
-  }
-  
-  .ad-form-step {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  button {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
+  max-width: 600px;
+  margin: auto;
+  padding: var(--padding-large);
+
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--box-shadow-light);
+}
+
+.ad-form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-back {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  margin-top: 20px;
+}

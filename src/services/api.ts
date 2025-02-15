@@ -21,9 +21,6 @@ export const getAdById = async (id: string): Promise<Ad> => {
 };
 
 export const createAd = async (adData: FormData): Promise<Ad> => {
-  for (let [key, value] of adData.entries()) {
-    console.log(`FormData содержит: ${key}:`, value);
-  }
   const response = await apiClient.post<Ad>("", adData);
   return response.data;
 };

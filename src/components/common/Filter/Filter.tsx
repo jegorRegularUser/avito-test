@@ -21,8 +21,10 @@ const Filter = ({
 
   const handleCategoryChange = (value: string | null) => {
     setCategory(value);
-    const newFilters = { ...tempFilters, type: value };
+    const newFilters = { type: value };
     setTempFilters(newFilters);
+    setFilters(newFilters);
+    onFilterChange(newFilters);
   };
 
   const handleFilterChange = (key: string, value: any) => {

@@ -1,0 +1,10 @@
+.ad-form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-back {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+}

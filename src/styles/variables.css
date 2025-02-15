@@ -7,13 +7,17 @@
     --info-color: #17a2b8;
 
     --light-color: #f8f9fa;
-    --light-bg: #ffffff;
+    --light-bg: #e9ecef;
     --dark-color: #343a40;
+    --dark-light-bg: #2f2f2f;
     --dark-bg: #242424;
     --dark-muted: #3d4146; 
+
+    --box-shadow-light: 0 4px 6px rgba(88, 88, 88, 0.1), 0 1px 3px rgba(90, 90, 90, 0.06);
   
     --text-color-light: var(--light-color);
     --text-color-dark: var(--dark-color);
+    
   
     --font-12: 12px;
     --font-16: 16px;
@@ -26,4 +30,10 @@
     --padding-small: 4px 8px;
     --padding-medium: 8px 16px;
     --padding-large: 12px 24px;
-  }
+
+    --input-padding: 10px;
+    --input-border: 1px solid var(--secondary-color);
+    --input-border-radius: var(--border-radius-medium);
+    --input-focus-border-color: var(--primary-color);
+    --input-focus-box-shadow: 0 0 4px var(--primary-color);
+}
