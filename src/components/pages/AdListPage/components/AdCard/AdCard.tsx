@@ -9,11 +9,11 @@ interface AdCardProps extends AdBase {
 
 const AdCard = ({ id, name, location, type, price, image, className = "" }: AdCardProps) => {
   const navigate = useNavigate();
-
+console.log(image)
   return (
     <div className={`adCard ${className}`}>
       <div className="adCard__image-container">
-        {image ? (
+        {image && image != "null" ? (
           <img src={image} alt={name} className="adCard__image" />
         ) : (
           <div className="adCard__image-placeholder">Нет фотографии</div>

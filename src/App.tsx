@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import AdListPage from './components/pages/AdListPage/AdListPage';
 import AdFormPage from './components/pages/AdFormPage/AdFormPage';
 import AdPage from './components/pages/AdPage/AdPage';
-import {Alert} from './components/common';
+import { Alert } from './components/common';
 import './App.css';
 
 let showAlert: (message: string, type: "success" | "error") => void;

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Button } from "../../../common";
+import { Button, Dropdown } from "../../../common";
 import "./AdFormStepDetails.css";
 
-const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data: any) => void; onBack: () => void }) => {
+const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data: any) => void; onBack: (data: any) => void }) => {
   const [formData, setFormData] = useState(data);
   const [errors, setErrors] = useState({
     propertyType: false,
@@ -12,11 +12,9 @@ const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data:
     brand: false,
     model: false,
     year: false,
-    mileage: false,
     serviceType: false,
     experience: false,
     cost: false,
-    workSchedule: false,
   });
 
   useEffect(() => {
@@ -28,6 +26,11 @@ const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data:
     setErrors({ ...errors, [e.target.name]: false });
   };
 
+  const handleDropdownChange = (key: string, value: string | null) => {
+    setFormData({ ...formData, [key]: value });
+    setErrors({ ...errors, [key]: false });
+  };
+
   const handleNext = () => {
     const newErrors = {
       propertyType: formData.type === "Недвижимость" && !formData.propertyType,
@@ -37,11 +40,9 @@ const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data:
       brand: formData.type === "Авто" && !formData.brand,
       model: formData.type === "Авто" && !formData.model,
       year: formData.type === "Авто" && !formData.year,
-      mileage: formData.type === "Авто" && !formData.mileage,
       serviceType: formData.type === "Услуги" && !formData.serviceType,
       experience: formData.type === "Услуги" && !formData.experience,
       cost: formData.type === "Услуги" && !formData.cost,
-      workSchedule: formData.type === "Услуги" && !formData.workSchedule,
     };
     setErrors(newErrors);
 
@@ -50,18 +51,26 @@ const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data:
     }
   };
 
+  const handleBack = () => {
+    onBack(formData);
+  };
+
   return (
     <div className="ad-form-step">
       <h2>Детали объявления</h2>
       {formData.type === "Недвижимость" && (
         <>
-          <input
-            type="text"
-            name="propertyType"
-            placeholder="Тип недвижимости"
-            value={formData.propertyType}
-            onChange={handleChange}
-            className={errors.propertyType ? "error" : ""}
+          <Dropdown
+            options={[
+              { value: "Квартира", label: "Квартира" },
+              { value: "Дом", label: "Дом" },
+              { value: "Коттедж", label: "Коттедж" },
+            ]}
+            placeholder="Выберите тип недвижимости"
+            selected={formData.propertyType}
+            onSelect={(value) => handleDropdownChange("propertyType", value)}
+            error={errors.propertyType}
+            customStyles={{ width: "100%", textAlign: "left" }}
           />
           <input
             type="number"
@@ -91,13 +100,17 @@ const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data:
       )}
       {formData.type === "Авто" && (
         <>
-          <input
-            type="text"
-            name="brand"
-            placeholder="Марка"
-            value={formData.brand}
-            onChange={handleChange}
-            className={errors.brand ? "error" : ""}
+          <Dropdown
+            options={[
+              { value: "Toyota", label: "Toyota" },
+              { value: "BMW", label: "BMW" },
+              { value: "Mercedes", label: "Mercedes" },
+            ]}
+            placeholder="Выберите марку машины"
+            selected={formData.brand}
+            onSelect={(value) => handleDropdownChange("brand", value)}
+            error={errors.brand}
+            customStyles={{ width: "100%", textAlign: "left" }}
           />
           <input
             type="text"
@@ -121,19 +134,22 @@ const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data:
             placeholder="Пробег"
             value={formData.mileage}
             onChange={handleChange}
-            className={errors.mileage ? "error" : ""}
           />
         </>
       )}
       {formData.type === "Услуги" && (
         <>
-          <input
-            type="text"
-            name="serviceType"
-            placeholder="Тип услуги"
-            value={formData.serviceType}
-            onChange={handleChange}
-            className={errors.serviceType ? "error" : ""}
+          <Dropdown
+            options={[
+              { value: "Ремонт", label: "Ремонт" },
+              { value: "Уборка", label: "Уборка" },
+              { value: "Доставка", label: "Доставка" },
+            ]}
+            placeholder="Выберите тип услуги"
+            selected={formData.serviceType}
+            onSelect={(value) => handleDropdownChange("serviceType", value)}
+            error={errors.serviceType}
+            customStyles={{ width: "100%", textAlign: "left" }}
           />
           <input
             type="number"
@@ -157,11 +173,10 @@ const AdFormStepDetails = ({ data, onNext, onBack }: { data: any; onNext: (data:
             placeholder="График работы"
             value={formData.workSchedule}
             onChange={handleChange}
-            className={errors.workSchedule ? "error" : ""}
           />
         </>
       )}
-      <Button onClick={onBack}>Назад</Button>
+      <Button onClick={handleBack}>Назад</Button>
       <Button onClick={handleNext}>Далее</Button>
     </div>
   );

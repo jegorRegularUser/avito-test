@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Filter.css";
 import { Dropdown, Button, RangeSelector } from "../../common";
-
+import React from "react";
 interface FilterProps {
   onFilterChange: (filters: Record<string, any>) => void;
   showSearchButton?: boolean;

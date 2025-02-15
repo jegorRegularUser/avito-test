@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./ImageUpload.css";
-
+import React from "react";
 const ImageUpload = ({ onImageUpload, initialImage, isImageLoaded }: { onImageUpload: (file: File | null) => void, initialImage?: string, isImageLoaded?: boolean }) => {
   const [image, setImage] = useState<string | null>(initialImage || null);
 
@@ -30,6 +30,7 @@ const ImageUpload = ({ onImageUpload, initialImage, isImageLoaded }: { onImageUp
   const handleRemoveImage = () => {
     setImage(null);
     onImageUpload(null);
+    console.log("Image removed");
   };
 
   return (

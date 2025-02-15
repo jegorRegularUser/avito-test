@@ -4,7 +4,14 @@
     "paths": {
       "components/*": ["components/*"],
       "pages/*": ["components/pages/*"]
-    }
+    },
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["jest"]
   },
   "files": [],
   "references": [

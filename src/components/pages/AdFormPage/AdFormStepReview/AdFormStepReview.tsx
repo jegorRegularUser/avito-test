@@ -7,7 +7,7 @@ const AdFormStepReview = ({
   onSubmit,
 }: {
   data: any;
-  onBack: () => void;
+  onBack: (data: any) => void;
   onSubmit: () => void;
 }) => {
   return (
@@ -60,7 +60,7 @@ const AdFormStepReview = ({
           )}
         </div>
       </div>
-      <Button onClick={onBack}>Назад</Button>
+      <Button onClick={() => onBack(data)}>Назад</Button>
       <Button onClick={onSubmit}>Отправить</Button>
     </div>
   );

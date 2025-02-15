@@ -33,14 +33,17 @@ const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
     setStep((prev) => prev + 1);
   };
 
-  const handleBack = () => setStep((prev) => prev - 1);
+  const handleBack = (data: any) => {
+    setFormData((prev) => ({ ...prev, ...data }));
+    setStep((prev) => prev - 1);
+  };
 
   const handleSubmit = () => {
     if (formData) {
       const formDataToSend = new FormData();
       Object.keys(formData).forEach((key) => {
         if (key === "image" && formData[key]) {
-          formDataToSend.append(key, formData[key]);
+            formDataToSend.append(key, formData[key]);
         } else {
           formDataToSend.append(key, formData[key] as string);
         }
