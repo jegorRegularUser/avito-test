@@ -6,7 +6,7 @@ const API_BASE_URL = "http://localhost:3000/items";
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
   },
 });
 
@@ -20,12 +20,15 @@ export const getAdById = async (id: string): Promise<Ad> => {
   return response.data;
 };
 
-export const createAd = async (adData: Omit<Ad, "id">): Promise<Ad> => {
-  const response = await apiClient.post<Ad>("/", adData);
+export const createAd = async (adData: FormData): Promise<Ad> => {
+  for (let [key, value] of adData.entries()) {
+    console.log(`FormData содержит: ${key}:`, value);
+  }
+  const response = await apiClient.post<Ad>("", adData);
   return response.data;
 };
 
-export const updateAd = async (id: string, adData: Partial<Ad>): Promise<Ad> => {
+export const updateAd = async (id: string, adData: FormData): Promise<Ad> => {
   const response = await apiClient.put<Ad>(`/${id}`, adData);
   return response.data;
 };
@@ -110,4 +113,14 @@ export const mockAds: Ad[] = [
         image: "https://via.placeholder.com/150",
     },
 ];
+
+// export const uploadMockData = async (): Promise<void> => {
+//   for (const ad of mockAds) {
+//     const formData = new FormData();
+//     Object.keys(ad).forEach(key => {
+//       formData.append(key, ad[key]);
+//     });
+//     await createAd(formData);
+//   }
+// };
 

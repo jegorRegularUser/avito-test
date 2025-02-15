@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Dropdown, Button } from "../../../common";
+import ImageUpload from "../../../common/ImageUpload/ImageUpload";
 import "./AdFormStepGeneral.css";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +10,7 @@ const AdFormStepGeneral = ({ data, onNext }: { data: any; onNext: (data: any) =>
     description: "",
     location: "",
     type: "",
+    image: null,
   });
   const navigate = useNavigate();
 
@@ -22,8 +24,23 @@ const AdFormStepGeneral = ({ data, onNext }: { data: any; onNext: (data: any) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleTypeChange = (value: string  | null) => {
-    setFormData({ ...formData, type: value, propertyType: "", area: "", rooms: "", price: "", brand: "", model: "", year: "", mileage: "", serviceType: "", experience: "", cost: "", workSchedule: "" });
+  const handleTypeChange = (value: string | null) => {
+    setFormData({ 
+      ...formData, 
+      type: value, 
+      "Тип недвижимости": "", 
+      "Площадь": "", 
+      "Количество комнат": "", 
+      "Марка": "", 
+      "Модель": "", 
+      "Год выпуска": "", 
+      "Тип услуги": "", 
+      "Опыт (лет)": "" 
+    });
+  };
+
+  const handleImageUpload = (file: File | null) => {
+    setFormData({ ...formData, image: file });
   };
 
   return (
@@ -37,6 +54,7 @@ const AdFormStepGeneral = ({ data, onNext }: { data: any; onNext: (data: any) =>
         { value: "Авто", label: "Авто" },
         { value: "Услуги", label: "Услуги" }
       ]} selected={formData.type} onSelect={handleTypeChange} />
+      <ImageUpload onImageUpload={handleImageUpload} />
       <Button onClick={() => onNext(formData)}>Далее</Button>
       <button onClick={() => navigate("/list")}>Вернуться назад</button>
     </div>

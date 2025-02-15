@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
   const { id: adId } = useParams<{ id: string }>();
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState<Partial<Ad>>();
+  const [formData, setFormData] = useState<Partial<Ad>>({});
   const [loading, setLoading] = useState(true);
   const [alert, setAlert] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
@@ -39,8 +39,17 @@ const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
 
   const handleSubmit = () => {
     if (formData) {
+      const formDataToSend = new FormData();
+      Object.keys(formData).forEach(key => {
+        if (key === "image" && formData[key]) {
+          formDataToSend.append(key, formData[key]);
+        } else {
+          formDataToSend.append(key, formData[key] as string);
+        }
+      });
+
       if (mode === "edit" && adId) {
-        updateAd(adId, formData)
+        updateAd(adId, formDataToSend)
           .then((res) => {
             console.log(res);
             setAlert({ message: "Объявление успешно обновлено!", type: "success" });
@@ -50,7 +59,7 @@ const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
             setAlert({ message: "Ошибка при обновлении объявления!", type: "error" });
           });
       } else {
-        createAd(formData)
+        createAd(formDataToSend)
           .then((res) => {
             console.log(res);
             setAlert({ message: "Объявление успешно создано!", type: "success" });

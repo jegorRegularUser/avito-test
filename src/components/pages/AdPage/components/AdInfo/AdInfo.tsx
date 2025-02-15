@@ -4,6 +4,11 @@ import "./AdInfo.css";
 const AdInfo = ({ ad }: { ad: Ad }) => {
   return (
     <div className="ad-info">
+      {ad.image ? (
+        <img src={ad.image} alt={ad.name} className="ad-info__image" />
+      ) : (
+        <div className="ad-info__image-placeholder">No Image</div>
+      )}
       <p><strong>Локация:</strong> {ad.location}</p>
       <p><strong>Тип:</strong> {ad.type}</p>
       

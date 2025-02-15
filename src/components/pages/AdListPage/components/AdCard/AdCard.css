@@ -15,6 +15,23 @@
     gap: 4px;
   }
   
+  .adCard__image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .adCard__image-placeholder {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+    border-radius: 8px;
+  }
+  
   .name {
     font-size: 1.2rem;
     font-weight: bold;
@@ -24,4 +41,3 @@
     font-size: 1rem;
     color: var(--color-text-secondary);
   }
-  
