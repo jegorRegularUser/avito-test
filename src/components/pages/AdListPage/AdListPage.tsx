@@ -33,6 +33,25 @@ const AdListPage = () => {
   }, []);
 
   useEffect(() => {
+    const applyFilters = (ads: Ad[], filters: Record<string, any>) => {
+      console.log("Filters applied:", filters);
+      return ads.filter((ad) => {
+        return Object.keys(filters).every((key) => {
+          console.log(key, filters[key]);
+          if (filters[key] && Array.isArray(filters[key])) {
+            const [min, max] = filters[key];
+            const minValue = min !== "" ? min : 0;
+            const maxValue = max !== "" ? max : ad[key];
+            console.log(key, ad, ad[key], minValue, maxValue, ad[key] >= minValue && ad[key] <= maxValue);
+            return ad[key] >= minValue && ad[key] <= maxValue;
+          } else if (filters[key]) {
+            return ad[key] === filters[key];
+          }
+          return true;
+        });
+      });
+    };
+
     let updatedAds = [...ads];
 
     if (searchQuery) {
@@ -41,10 +60,7 @@ const AdListPage = () => {
       );
     }
 
-    if (filters.type) {
-      console.log(filters);
-      updatedAds = updatedAds.filter((ad) => ad.type === filters.type);
-    }
+    updatedAds = applyFilters(updatedAds, filters);
 
     setFilteredAds(updatedAds);
     setCurrentPage(1);

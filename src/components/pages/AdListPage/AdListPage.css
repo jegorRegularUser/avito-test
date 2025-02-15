@@ -16,7 +16,7 @@
   .adList {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+
     gap: 12px;
     margin-bottom: 10px;
   }

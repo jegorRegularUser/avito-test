@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Filter.css";
-import { Dropdown, Button } from "../../common";
+import { Dropdown, Button, RangeSelector } from "../../common";
 
 interface FilterProps {
   onFilterChange: (filters: Record<string, any>) => void;
@@ -17,67 +17,72 @@ const Filter = ({
 }: FilterProps) => {
   const [category, setCategory] = useState<string | null>(null);
   const [filters, setFilters] = useState<Record<string, any>>({});
+  const [tempFilters, setTempFilters] = useState<Record<string, any>>({});
 
   const handleCategoryChange = (value: string | null) => {
     setCategory(value);
-    setFilters({});
-    onFilterChange({});
+    const newFilters = { ...tempFilters, type: value };
+    setTempFilters(newFilters);
   };
 
   const handleFilterChange = (key: string, value: any) => {
-    const newFilters = { ...filters, [key]: value };
-    setFilters(newFilters);
-    console.log(filters)
-    onFilterChange(newFilters);
+    const newFilters = { ...tempFilters, [key]: value };
+    setTempFilters(newFilters);
+  };
+
+  const handleRangeChange = (key: string, range: [number, number]) => {
+    const newFilters = { ...tempFilters, [key]: range };
+    setTempFilters(newFilters);
   };
 
   const handleFilterButtonClick = () => {
-    onFilterChange(filters);
+    setFilters(tempFilters);
+    onFilterChange(tempFilters);
   };
 
   return (
     <div className={`filter ${className}`}>
       <Dropdown
         options={[
-          { value: "real_estate", label: "Недвижимость" },
-          { value: "auto", label: "Авто" },
-          { value: "services", label: "Услуги" },
+          { value: "Недвижимость", label: "Недвижимость" },
+          { value: "Авто", label: "Авто" },
+          { value: "Услуги", label: "Услуги" },
         ]}
         placeholder="Выберите категорию"
         onSelect={handleCategoryChange}
       />
 
-      {category === "real_estate" && (
+      {category === "Недвижимость" && (
         <>
           <Dropdown
             options={[
-              { value: "apartment", label: "Квартира" },
-              { value: "house", label: "Дом" },
-              { value: "cottage", label: "Коттедж" },
+              { value: "Квартира", label: "Квартира" },
+              { value: "Дом", label: "Дом" },
+              { value: "Коттедж", label: "Коттедж" },
             ]}
             placeholder="Тип недвижимости"
             onSelect={(value) => handleFilterChange("propertyType", value)}
           />
-          <input
-            type="number"
-            placeholder="Площадь (м²)"
-            onChange={(e) => handleFilterChange("area", e.target.value)}
+          <RangeSelector
+            placeholder="Площадь"
+            onRangeChange={(range) => handleRangeChange("area", range)}
+            width="300px"
           />
-          <input
-            type="number"
-            placeholder="Количество комнат"
-            onChange={(e) => handleFilterChange("rooms", e.target.value)}
+          <RangeSelector
+            placeholder="Кол-во комнат"
+            onRangeChange={(range) => handleRangeChange("rooms", range)}
+            width="370px"
           />
         </>
       )}
 
-      {category === "auto" && (
+      {category === "Авто" && (
         <>
           <Dropdown
             options={[
-              { value: "toyota", label: "Toyota" },
-              { value: "bmw", label: "BMW" },
-              { value: "mercedes", label: "Mercedes" },
+              { value: "Toyota", label: "Toyota" },
+              { value: "BMW", label: "BMW" },
+              { value: "Mercedes", label: "Mercedes" },
             ]}
             placeholder="Марка"
             onSelect={(value) => handleFilterChange("brand", value)}
@@ -87,29 +92,29 @@ const Filter = ({
             placeholder="Модель"
             onChange={(e) => handleFilterChange("model", e.target.value)}
           />
-          <input
-            type="number"
+          <RangeSelector
             placeholder="Год выпуска"
-            onChange={(e) => handleFilterChange("year", e.target.value)}
+            onRangeChange={(range) => handleRangeChange("year", range)}
+            width="330px"
           />
         </>
       )}
 
-      {category === "services" && (
+      {category === "Услуги" && (
         <>
           <Dropdown
             options={[
-              { value: "repair", label: "Ремонт" },
-              { value: "cleaning", label: "Уборка" },
-              { value: "delivery", label: "Доставка" },
+              { value: "Ремонт", label: "Ремонт" },
+              { value: "Уборка", label: "Уборка" },
+              { value: "Доставка", label: "Доставка" },
             ]}
             placeholder="Тип услуги"
             onSelect={(value) => handleFilterChange("serviceType", value)}
           />
-          <input
-            type="number"
+          <RangeSelector
             placeholder="Опыт (лет)"
-            onChange={(e) => handleFilterChange("experience", e.target.value)}
+            onRangeChange={(range) => handleRangeChange("experience", range)}
+            width="310px"
           />
         </>
       )}

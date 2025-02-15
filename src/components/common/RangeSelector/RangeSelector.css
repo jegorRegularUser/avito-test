@@ -1,0 +1,9 @@
+.range-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.range-selector input {
+  height: 100%;
+}
