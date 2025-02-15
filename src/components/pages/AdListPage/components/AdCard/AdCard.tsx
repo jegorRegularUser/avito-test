@@ -9,7 +9,7 @@ interface AdCardProps extends AdBase {
 
 const AdCard = ({ id, name, location, type, price, image, className = "" }: AdCardProps) => {
   const navigate = useNavigate();
-console.log(image)
+
   return (
     <div className={`adCard ${className}`} data-testid="ad-card">
       <div className="adCard__image-container">

@@ -21,12 +21,26 @@ export const getAdById = async (id: string): Promise<Ad> => {
 };
 
 export const createAd = async (adData: FormData): Promise<Ad> => {
-  const response = await apiClient.post<Ad>("", adData);
+  const token = localStorage.getItem("token");
+  const response = await apiClient.post<Ad>("", adData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return response.data;
 };
 
 export const updateAd = async (id: string, adData: FormData): Promise<Ad> => {
-  const response = await apiClient.put<Ad>(`/${id}`, adData);
+  const token = localStorage.getItem("token");
+  if (token) {
+    const user = JSON.parse(atob(token.split('.')[1]));
+    adData.append("creator", user.username);
+  }
+  const response = await apiClient.put<Ad>(`/${id}`, adData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return response.data;
 };
 

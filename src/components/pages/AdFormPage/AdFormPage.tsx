@@ -49,11 +49,17 @@ const AdFormPage = ({ mode }: { mode: "create" | "edit" }) => {
         }
       });
 
+      const token = localStorage.getItem("token");
+      if (token) {
+        const user = JSON.parse(atob(token.split('.')[1]));
+        formDataToSend.append("creator", user.username);
+      }
+
       if (mode === "edit" && adId) {
         updateAd(adId, formDataToSend)
           .then((res) => {
             showAlert("Объявление успешно обновлено!", "success");
-            navigate("/list");
+            navigate(`/item/${adId}`);
           })
           .catch(() => {
             showAlert("Ошибка при обновлении объявления!", "error");

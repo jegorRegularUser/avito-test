@@ -1,0 +1,26 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--box-shadow-light);
+}
+.auth-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.auth-form .btn{
+    height: 40px;
+}
+
+.auth-form .error {
+  color: red;
+}
+
+.auth-form .success {
+  color: green;
+}

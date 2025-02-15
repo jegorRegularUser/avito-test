@@ -4,7 +4,7 @@ import "./AdInfo.css";
 const AdInfo = ({ ad }: { ad: Ad }) => {
   return (
     <div className="ad-info">
-      {ad.image ? (
+      {ad.image && ad.image != 'null' ? (
         <img src={ad.image} alt={ad.name} className="ad-info__image" />
       ) : (
         <div className="ad-info__image-placeholder">Нет фотографии</div>

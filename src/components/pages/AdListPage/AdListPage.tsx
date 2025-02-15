@@ -13,6 +13,7 @@ const AdListPage = () => {
   const [filters, setFilters] = useState<Record<string, any>>({});
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   const adsPerPage = 5;
   const navigate = useNavigate();
@@ -67,22 +68,61 @@ const AdListPage = () => {
   const indexOfFirstAd = indexOfLastAd - adsPerPage;
   const currentAds = filteredAds.slice(indexOfFirstAd, indexOfLastAd);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+  };
+
   return (
     <div className="container">
       <h1>Список объявлений</h1>
 
       <div className="topControls">
-       <Search onSearch={setSearchQuery} />
+        <Search onSearch={setSearchQuery} />
         <Filter onFilterChange={setFilters} />
-        <Button
-          variant="success"
-          size="medium"
-          rounded="medium"
-          onClick={() => navigate("/form")}
-          className="addAdBtn"
-        >
-          Разместить объявление
-        </Button>
+        {token ? (
+          <>
+            <Button
+              variant="success"
+              size="medium"
+              rounded="medium"
+              onClick={() => navigate("/form")}
+              className="addAdBtn"
+            >
+              Разместить объявление
+            </Button>
+            <Button
+              variant="danger"
+              size="medium"
+              rounded="medium"
+              onClick={handleLogout}
+              className="logoutBtn"
+            >
+              Выйти
+            </Button>
+          </>
+        ) : (
+          <>
+            <Button
+              variant="primary"
+              size="medium"
+              rounded="medium"
+              onClick={() => navigate("/login")}
+              className="loginBtn"
+            >
+              Вход
+            </Button>
+            <Button
+              variant="secondary"
+              size="medium"
+              rounded="medium"
+              onClick={() => navigate("/register")}
+              className="registerBtn"
+            >
+              Регистрация
+            </Button>
+          </>
+        )}
       </div>
 
       {isLoading ? (

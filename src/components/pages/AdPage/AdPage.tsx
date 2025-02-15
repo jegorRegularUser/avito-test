@@ -12,6 +12,8 @@ const AdPage = () => {
   const [ad, setAd] = useState<Ad | null>(null);
   const [loading, setLoading] = useState(true);
   const [alert, setAlert] = useState<{ message: string; type: "success" | "error" } | null>(null);
+  const token = localStorage.getItem("token");
+  const user = token ? JSON.parse(atob(token.split('.')[1])) : null;
 
   useEffect(() => {
     getAdById(id!)
@@ -38,7 +40,12 @@ const AdPage = () => {
   };
 
   if (loading) return <div className="ad"><Loader/></div>;
-  if (!ad) return <div className="ad">Объявление не найдено</div>;
+  if (!ad) return (
+    <div className="not-found">
+      Объявление не найдено
+      <Button onClick={() => navigate(-1)}>Назад</Button>
+    </div>
+  );
 
   return (
     <div className="ad">
@@ -46,9 +53,13 @@ const AdPage = () => {
       <h1>{ad.name}</h1>
       <AdInfo ad={ad} />
       <div className="ad__actions">
-        <Button onClick={() => navigate(-1)}>Назад</Button>
-        <Button onClick={() => navigate(`/form/${id}`, { state: { mode: 'edit', adId: id } })}>Редактировать</Button>
-        <Button variant="danger" onClick={handleDelete}>Удалить</Button>
+        <Button onClick={() => navigate(`/list`)}>Назад</Button>
+        {user && user.username === ad.creator && (
+          <>
+            <Button onClick={() => navigate(`/form/${id}`, { state: { mode: 'edit', adId: id } })}>Редактировать</Button>
+            <Button variant="danger" onClick={handleDelete}>Удалить</Button>
+          </>
+        )}
       </div>
     </div>
   );

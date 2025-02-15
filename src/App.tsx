@@ -4,6 +4,7 @@ import AdListPage from './components/pages/AdListPage/AdListPage';
 import AdFormPage from './components/pages/AdFormPage/AdFormPage';
 import AdPage from './components/pages/AdPage/AdPage';
 import { Alert } from './components/common';
+import { AuthPage } from './components/pages/AuthPage';
 import './App.css';
 
 let showAlert: (message: string, type: "success" | "error") => void;
@@ -27,6 +28,8 @@ function App() {
           <Route path="/form" element={<AdFormPage mode="create" />} />
           <Route path="/form/:id" element={<AdFormPage mode="edit" />} />
           <Route path="/item/:id" element={<AdPage />} />
+          <Route path="/login" element={<AuthPage isLogin={true} />} />
+          <Route path="/register" element={<AuthPage isLogin={false} />} />
         </Routes>
       </div>
     </Router>

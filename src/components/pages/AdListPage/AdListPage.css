@@ -1,56 +1,75 @@
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+.topControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.adList {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.addAdBtn,
+.loginBtn,
+.registerBtn,
+.logoutBtn {
+  position: absolute;
+  right: 5%;
+  height: 40px;
+}
+.addAdBtn {
+  top: 0;
+}
+.loginBtn {
+  right: 0%;
+}
+.registerBtn {
+  right: 7%;
+}
+.logoutBtn {
+  top: -60px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0;
     position: relative;
   }
-  
   .topControls {
-    display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 70px 0 20px;
+  }
+
+  .loginBtn,
+  .logoutBtn {
+    right: 0%;
+    width: 33%;
+  }
+  .registerBtn,
+  .addAdBtn {
+    right: 35%;
+    width: 65%;
+  }
+  .loginBtn,
+  .registerBtn,
+  .addAdBtn,
+  .logoutBtn {
+    top: -60px;
+  }
+
+  .container .adList {
     gap: 10px;
-    margin-bottom: 20px;
-    position: relative;
   }
-  
-  .adList {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .addAdBtn{
-    position: absolute;
-    top: 0;
-    right: 5%;
-    height: 40px;
-  }
-  
-
-
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: 0;
-      position: relative;
-
-    }
-    .topControls {
-      flex-direction: column;
-      margin: 70px 0 20px;
-    }
-    .addAdBtn{
-      top: -60px;
-      right: auto;
-      height: 40px;
-      width: 100%;
-    }
-
-    .container .adList {
-
-      gap: 10px;
-    }
-  }
-  
+}

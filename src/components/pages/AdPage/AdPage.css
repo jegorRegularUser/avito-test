@@ -17,3 +17,11 @@
   justify-content: space-between;
   margin-top: 20px;
 }
+
+.not-found {
+  text-align: center;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
