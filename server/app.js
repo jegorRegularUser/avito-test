@@ -84,7 +84,7 @@ app.post("/login", (req, res) => {
   const { username, password } = req.body;
   const user = users.find(u => u.username === username);
   if (user && bcrypt.compareSync(password, user.password)) {
-    const token = jwt.sign({ username: user.username }, secretKey, { expiresIn: '1h' });
+    const token = jwt.sign({ username: user.username }, secretKey);
     res.json({ token });
   } else {
     res.status(401).json({ message: "Неверные учетные данные" });

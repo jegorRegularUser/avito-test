@@ -1,4 +1,5 @@
 .ad-info {
+  max-width: 640px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +31,9 @@
   margin-bottom: 15px;
 }
 
-.ad-info__details {
+
+
+.ad-info__general {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -38,12 +41,11 @@
   gap: 8px;
 }
 
-.ad-info__details p {
+.ad-info__general p {
   margin: 0;
-  font-size: var(--font-16);
 }
 
-.ad-info__details span {
+.ad-info__general span {
   font-weight: bold;
   color: var(--primary-color);
 }
