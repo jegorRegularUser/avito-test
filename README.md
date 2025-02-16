@@ -1,54 +1,79 @@
-# avito-test
-Simple react+typescript site 
+# Avito Test Project
 
-# React + TypeScript + Vite
+## Описание проекта
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это сайт для размещения объявлений, где пользователи могут создавать, редактировать и удалять свои объявления. Основной функционал включает:
+- Регистрация и авторизация пользователей
+- Создание, редактирование и удаление объявлений
+- Просмотр списка объявлений
+- Поиск и фильтрация объявлений
 
-Currently, two official plugins are available:
+## Начало работы
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Предварительные требования
+- Node.js (>= 14.x)
+- npm (>= 6.x) или yarn (>= 1.x)
 
-## Expanding the ESLint configuration
+### Установка
+1. Клонируйте репозиторий:
+    ```sh
+    git clone https://github.com/yourusername/avito-test.git
+    cd avito-test
+    ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. Установите зависимости:
+    ```sh
+    npm install
+    # или
+    yarn install
+    ```
 
-- Configure the top-level `parserOptions` property like this:
+### Запуск проекта
+- Для запуска сервера разработки:
+    ```sh
+    npm run dev
+    # или
+    yarn dev
+    ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Для сборки проекта:
+    ```sh
+    npm run build
+    # или
+    yarn build
+    ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Для запуска тестов:
+    ```sh
+    npm run test
+    # или
+    yarn test
+    ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Линтинг
+- Для линтинга проекта:
+    ```sh
+    npm run lint
+    # или
+    yarn lint
+    ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Запуск с Docker
+1. Постройте и запустите контейнеры:
+    ```sh
+    docker-compose up --build
+    ```
+
+2. Откройте браузер и перейдите по адресу `http://localhost:5173`.
+
+## Обоснование выбора технологий
+
+- **Vite**: Быстрая сборка и современные функции разработки, такие как горячая перезагрузка модулей (HMR).
+- **TypeScript**: Статическая типизация помогает ловить ошибки на ранних стадиях и улучшает качество кода.
+- **Jest**: Мощная тестовая среда, которая хорошо интегрируется с React и TypeScript, позволяет писать и запускать тесты.
+- **ESLint**: Инструмент для анализа кода, который помогает поддерживать качество и согласованность кода.
+- **React Router**: Библиотека для маршрутизации в приложениях на React, упрощает навигацию между страницами.
+- **Axios**: HTTP клиент на основе промисов для выполнения API-запросов, удобен в использовании и поддерживает множество функций.
+- **Babel**: Транспилятор для преобразования современного JavaScript и TypeScript кода в совместимый с более старыми браузерами.
+- **Docker**: Используется для контейнеризации приложения, что упрощает его развертывание и запуск в различных средах.
 
