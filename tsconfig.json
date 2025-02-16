@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["node","jest"],
-    "lib": ["ES2024", "DOM"],
+    "lib": ["ES5", "DOM"],
     "jsx": "react-jsx"
   },
   "files": [],
