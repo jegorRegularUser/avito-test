@@ -17,7 +17,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "http://localhost:3000", "http://app:3000", "http://frontend:5173", "http://localhost", "http://backend:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -25,6 +25,9 @@ app.use(
     preflightContinue: true,
   })
 );
+app.use(cors({ origin: '*' }));
+
+app.options("*", cors());
 
 const uploadDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadDir)) {
@@ -73,21 +76,31 @@ const authenticateJWT = (req, res, next) => {
 
 // Регистрация пользователя
 app.post("/register", (req, res) => {
-  const { username, password } = req.body;
-  const hashedPassword = bcrypt.hashSync(password, 10);
-  users.push({ username, password: hashedPassword });
-  res.status(201).json({ message: "Пользователь успешно зарегистрирован" });
+  try {
+    const { username, password } = req.body;
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    users.push({ username, password: hashedPassword });
+    res.status(201).json({ message: "Пользователь успешно зарегистрирован" });
+  } catch (error) {
+    console.error("Error during registration:", error);
+    res.status(500).json({ message: "Ошибка регистрации" });
+  }
 });
 
 // Аутентификация пользователя
 app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find(u => u.username === username);
-  if (user && bcrypt.compareSync(password, user.password)) {
-    const token = jwt.sign({ username: user.username }, secretKey);
-    res.json({ token });
-  } else {
-    res.status(401).json({ message: "Неверные учетные данные" });
+  try {
+    const { username, password } = req.body;
+    const user = users.find(u => u.username === username);
+    if (user && bcrypt.compareSync(password, user.password)) {
+      const token = jwt.sign({ username: user.username }, secretKey);
+      res.json({ token });
+    } else {
+      res.status(401).json({ message: "Неверные учетные данные" });
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).json({ message: "Ошибка аутентификации" });
   }
 });
 
@@ -193,10 +206,13 @@ app.post("/upload", upload.single("image"), (req, res) => {
 
 app.use("/uploads", express.static(uploadDir));
 
-app.options("*", cors()); // Enable pre-flight requests for all routes
-
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Сервер запущен на порту ${PORT}`);
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Что-то плохое произошло');
 });
